@@ -1,0 +1,27 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block content %}
+
+    <style>
+        html
+        {
+            scroll-behavior: auto;
+        }
+    </style>
+
+    <!--SIGN UP-->
+    <section class="section signin">
+        <div class="container">
+            <form action="{% url 'signup' %}" method="post">
+                {% csrf_token %}
+                {{form.as_p}}
+                <div class="btn-container">
+                    <input type="submit" class="btn btn-secondary" value="SIGN IN">
+                    <input type="reset" class="btn btn-secondary" value="RESET">
+                </div>
+                <a href="{% url 'log-page' %}">Already have an account?</a> 
+            </form>
+        </div>
+    </section>
+
+{% endblock content %}          

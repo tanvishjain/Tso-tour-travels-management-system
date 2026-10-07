@@ -1,0 +1,26 @@
+{% extends "home/after_login_base.html" %}
+{% block content %}
+
+    <style>
+        .upi
+        {
+            margin-inline: auto;
+            margin-top: 25rem;
+        }
+    </style>
+
+    <!--UPI-->
+    <section class="section signin login upi">
+        <div class="container">
+            <form action='{% url "upi" %}' method="post">
+                {% csrf_token %}                
+                {{form.as_p}}
+                <div class="btn-container">
+                    <input type="submit" class="btn btn-secondary" value="PAY NOW">
+                    <input type="reset" class="btn btn-secondary" value="RESET">
+                </div>
+            </form>
+        </div>
+    </section>
+
+{% endblock content %}

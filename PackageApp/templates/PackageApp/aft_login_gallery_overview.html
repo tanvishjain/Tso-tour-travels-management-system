@@ -1,0 +1,42 @@
+{% extends "home/after_login_base.html" %}
+{% load static %}
+{% block content %}
+
+    <style>
+        .gallery-list 
+        {
+            display: grid;
+            grid-template-column: repeat(2, 1fr);
+        }
+        .gallery-list img
+        {
+            border-radius: 30px;
+        }
+    </style>
+
+    <!--GALLERY-->
+    <main>
+        <article>
+            <section class="section hero gallery gallery-page">
+               
+                <div class="container">
+                    <ul class="gallery-list">
+                        {% for obj in GalleryData %}
+                        <a href="{% url 'gallery-detail' obj.id %}" target="_blank"> 
+                            <li class="gallery-item">
+                                <figure class="item-banner img-holder" >
+                                    <img src="{{obj.Image.url}}" loading="lazy" alt="{{obj.Title}}" class="img-cover">
+                                </figure>
+                            </li>
+                        </a>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="btn-container">
+                        <a href="{% url 'gallery-form' %}" class="btn btn-secondary">ADD YOURS</a>
+                </div>
+            </section>
+        </article>
+    </main>
+
+{% endblock content %}

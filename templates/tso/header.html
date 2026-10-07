@@ -1,0 +1,59 @@
+{% load static %}
+
+    <!--HEADER-->
+    <header class="header" data-header> 
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="{% static 'TSO/Images/tso.png' %}" alt="logo" width="187" height="38">
+            </a> 
+
+            <nav class="navbar" data-navbar>
+
+                <div class="navbar-top">
+                    <a href="#" class="logo">
+                        <img src="{% static 'TSO/Images/tso.png' %}" alt="logo" width="187" height="38">
+                    </a> 
+
+                    <button class="nav-toggle-btn" aria-label="close menu" data-nav-toggler>
+                        <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+                    </button>
+                </div>
+
+                <ul class="navbar-list">
+
+                    <li class="navbar-item">
+                        <a href="#" class="navbar-link">Home</a> 
+                    </li>
+                    <li class="navbar-item">
+                        <a href="#service" class="navbar-link">Services</a> 
+                    </li>
+                    <li class="navbar-item">
+                        <a href="#destination" class="navbar-link">Packages</a> 
+                    </li>
+                    <li class="navbar-item">
+                        <a href="#contact" class="navbar-link">Contact</a> 
+                    </li>
+                    <li class="navbar-item">
+                        <a href="#about-us" class="navbar-link">About</a> 
+                    </li>
+                    <li class="navbar-item">
+                        <a href="#" class="navbar-link">My Profile</a> 
+                    </li>
+
+                </ul> 
+
+                <div class="header-action">
+                    <a href="#" class="login-btn">Login</a> 
+                    <a href="#" class="btn btn-primary">Sign Up</a>   
+                </div>
+
+            </nav>
+
+            <button class="nav-toggle-btn" aria-label="open menu" data-nav-toggler>
+                <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+            </button> 
+
+            <div class="overlay" data-overlay data-nav-toggle></div>
+
+        </div>
+    </header>

@@ -1,0 +1,21 @@
+{% extends "home/after_login_base.html" %}
+{% load static %}
+{% block content %}
+
+    <section class="section signin login">
+        <div class="container">
+            <form action='{% url "aft-log-page" %}' method="post">
+                {% csrf_token %}                
+                {{form.as_p}}
+                <div class="btn-container">
+                    <input type="submit" class="btn btn-secondary" value="LOG IN">
+                    <input type="reset" class="btn btn-secondary" value="RESET">
+                </div>
+                <a href="{% url 'aft-signup' %}">New user?</a> <br /> 
+                <a href="">Forgot password</a> <br /> 
+                <a href="{% url 'aft-change-pass' %}">Change password</a> 
+            </form>
+        </div>
+    </section>
+
+{% endblock content %}

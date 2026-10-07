@@ -1,0 +1,139 @@
+{% extends "home/after_login_base.html" %}
+{% load static %}
+{% block content %}
+
+    <style>
+        /*-----------------------------------*\
+        #GALLERY
+        \*-----------------------------------*/
+        .package
+        {
+            margin-top: 15rem;
+        }
+        .inclu-exclu
+        {
+            gap: 5rem;
+        }
+        .gallery
+        {
+            margin-top:  5rem;
+        }
+
+        .gallery-list
+        {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .gallery .item-banner img
+        {
+            border-radius: 30px;
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            -ms-border-radius: 30px;
+            -o-border-radius: 30px;
+        }
+
+        .gallery .gallery-list
+        {
+            height: 60%;
+            width: 80%;
+            margin-inline: auto;
+        }
+
+        .gallery a 
+        {
+            margin-top: 4rem;
+            margin-inline: auto;
+        }
+
+    </style>
+
+    {% for obj1 in PackageData %}
+    <!--PACKAGE DETAILS-->
+    <section class="section package" aria-label="hero">
+        <div class="container">
+            <div class="package-overview"> 
+                <div class="detail">
+                    <h2 class="h2 title section-title">{{obj1.Package_Name}}</h2>
+                    <ul>
+                        <li><strong>Package Price :</strong> &#8377;{{obj1.Price}}</li>
+                        <li><strong>Starting Date :</strong> {{obj1.Starting_Date}}</li>
+                        <li><strong>Ending Date :</strong> {{obj1.Ending_Date}}</li> 
+                        <li><strong>Duration :</strong> {{obj1.Duration}}</li>   
+                        <li><strong>Registraion Deadline :</strong> {{obj1.Registration_Deadline}}</li>
+                        <li><strong>Discount Percentage :</strong> {{obj1.Discount_Percentage}}%</li>
+                    </ul>
+                    <a href="{% url 'booking' %}" class="btn btn-secondary">BOOK NOW</a>
+                </div>
+                
+                <div class="text">
+                    <h2 class="h2 title section-title">OVERVIEW</h2>
+                    <p class="p">{{obj1.Description}}</p>
+                </div>
+            </div>
+
+            <p class="section-subtitle">DAY DESCRIPTION</p>
+        
+                        <div class="day-desc">
+                            {% for obj2 in DayData %}
+                            <div class="day">
+                                <h2 class="h2 title section-title">Day {{obj2.Day_Number}}</h2>
+                                <h3 class="h3">Hotel</h3>
+                                <div class="hotel-detail">
+                                    <a href="#" class="span">{{obj2.Hotel.Hotel_Name}}</a>
+                                </div> 
+                                <div class="day-detail">
+                                    <h3 class="h3">Detailed Itinery For Day {{obj2.Day_Number}}</h3>
+                                    <h4 class="h4">Falling For {{obj2.City.City_Name}}</h4>
+                                    <p class="p">{{obj2.Description}}</p>
+                                </div> 
+                            </div>
+                            {% endfor %}
+                        </div>
+            
+
+            <p class="section-subtitle" style="margin-top:5rem;">Inclusions - Exclusions</p>
+            <div class="inclu-exclu">
+               
+                <div class="inclu">
+                    <h2 class="h2 title section-title">Inclusions</h2>
+                    <ul>
+                        <li>{{obj1.Inclusions}}</li>
+                    </ul> 
+                </div>
+                <div class="exclu">
+                    <h2 class="h2 title section-title">Exclusions</h2>
+                    <ul>
+                        <li>{{obj1.Exclusions}}</li>
+                    </ul> 
+                </div>
+            </div>
+        </div>  
+         
+      
+        <!--GALLERY-->
+        <section class="section gallery gallery-page" aria-label="gallery">
+            <div class="container">
+                <p class="section-subtitle">Photo Gallery</p>
+                <h2 class="h2 title section-title">Photo’s From Travelers</h2> 
+                <ul class="gallery-list">
+                    {% for obj3 in GalleryData %}
+                    <a href="{% url 'gallery-detail' obj3.id %}" target="_blank"> 
+                        <li class="gallery-item">
+                            <figure class="item-banner img-holder">
+                                <img src="{{obj3.Image.url}}" loading="lazy" alt="{{obj3.Title}}" class="img-cover">
+                            </figure>
+                        </li>
+                    </a>
+                    {% endfor %}
+                </ul> 
+                <a href="{% url 'aft-gallery-overview' obj1.id %}" class="btn btn-secondary">View All Images</a>
+            </div>
+        </section>
+        
+    </section> 
+
+    {% endfor %}
+
+{% endblock content %}

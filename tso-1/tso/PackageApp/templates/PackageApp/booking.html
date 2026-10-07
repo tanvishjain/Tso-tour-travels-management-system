@@ -1,0 +1,34 @@
+{% extends "home/after_login_base.html" %}
+{% block content %}
+
+    <style>
+        .booking 
+        {
+            width: 40vw;
+            margin-inline: auto;
+        }
+        .booking input,
+        .booking select 
+        {
+            width: 33vw;
+        }
+    </style>
+
+    <!--UPI-->
+    <section class="section signin booking">
+        <div class="container">
+            {% if form %}
+            <form action="{% url 'booking' %}" method="post">
+                {% csrf_token %}                
+                {{form.as_p}}
+                {% comment %} <input type="hidden" name="id" value="{{ id }}"> {% endcomment %}
+                <div class="btn-container">
+                    <input type="submit" class="btn btn-secondary" value="Book NOW">
+                    <input type="reset" class="btn btn-secondary" value="RESET">
+                </div>
+            </form>
+            {% endif %}
+        </div>
+    </section>
+
+{% endblock content %}

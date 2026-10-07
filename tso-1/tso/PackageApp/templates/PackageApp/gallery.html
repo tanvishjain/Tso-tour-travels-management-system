@@ -1,0 +1,25 @@
+{% extends "home/after_login_base.html" %}
+{% block content %}
+
+    <style>
+        .gallery
+        {
+            margin-inline: auto;
+        }
+    </style>
+
+    <!--UPI-->
+    <section class="section signin login gallery">
+        <div class="container">
+            <form action='{% url "gallery-form" %}' method="post" enctype="multipart/form-data">
+                {% csrf_token %}                
+                {{form.as_p}}
+                <div class="btn-container">
+                    <input type="submit" class="btn btn-secondary" value="ADD">
+                    <input type="reset" class="btn btn-secondary" value="RESET">
+                </div>
+            </form>
+        </div>
+    </section>
+
+{% endblock content %}

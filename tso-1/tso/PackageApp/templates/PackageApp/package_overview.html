@@ -1,0 +1,40 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block content %}
+
+    <style>
+        .desti img
+        {
+            border-radius: 30px;
+        }
+    </style>
+
+    <!--PACKAGE OVERVIEW-->
+    <main>
+        <article>
+            <section class="section desti" aria-label="destination">
+                <div class="container">
+                    <ul class="desti-list">
+                        {% for obj in PackageData %}
+                            <li>
+                                <div class="desti-card">
+                                    <div class="card-banner img-holder" style="--width: 600; --height: 650;">
+                                        <img src="{{obj.Posture.url}}" width="600" height="650" loading="lazy" alt="Enjoy the Beauty of the {{obj.State.State_Name}}" class="img-cover">
+                                        <span class="card-price">&#8377;{{obj.Price}}</span>
+                                    </div> 
+                                    <div class="card-content">
+                                        <h3 class="h3 title">
+                                            <a href="{% url 'package-detail' obj.id %}" class="card-title">Enjoy the Beauty of the {{obj.State.State_Name}}</a> 
+                                        </h3> 
+                                    </div>
+                                </div>
+                            </li> 
+                        {% endfor %}
+                    </ul> 
+                </div>
+            </section>
+        </article>
+    </main> 
+
+{% endblock content %}
+

@@ -1,0 +1,64 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block content %}
+
+    <style>
+        .feedback
+        {
+            margin-block-start: -5rem;
+        }
+        .feedback .container
+        {
+           width: 40vw;
+        }
+        .feedback .section-subtitle
+        {
+            font-size: 3.6rem;
+        }
+        .feedback form textarea
+        {
+            padding: 1rem 2rem;
+            width: 60vw;
+            border: 1px solid rgb(217, 216, 216);
+            border-radius: 30px;
+            margin-inline-start: 5rem;
+            height: 150px;
+            width: 90%;
+        }
+
+        .feedback label
+        {
+            margin-inline-start: 1rem;
+        }
+
+        .feedback select
+        {
+            background: transparent;
+            padding: 1rem 2rem;
+            width: 80vw;
+            border: 1px solid rgb(217, 216, 216);
+            border-radius: 200px;
+            margin-inline-start: 5rem;
+            height: 50%;
+        }
+    </style>
+
+    <!--FEEDBACK-->
+    <main>
+        <article>
+            <section class="section hero has-bg-image feedback desti" id="feedback" aria-label="feedback" style="background-image:url({% static 'home/IMAGES/hero-bg.jpg' %})">
+                <div class="container signin ">
+                    <form action="{% url 'feedback' %}" method="post">
+                        {% csrf_token %}
+                        {{form.as_p}}
+                        <div class="btn-container">
+                            <input type="submit" class="btn btn-secondary" value="SUBMIT">
+                            <input type="reset" class="btn btn-secondary" value="RESET">
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </article>
+    </main>
+
+{% endblock content %}

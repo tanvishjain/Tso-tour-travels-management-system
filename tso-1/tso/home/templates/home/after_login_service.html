@@ -1,0 +1,42 @@
+{% extends "home/after_login_base.html" %}
+{% load static %}
+{% block content %}
+
+    <!--SERVICE-->
+    <main>
+        <article>
+            <section class="section hero has-bg-image service" id="service" aria-label="service" style="background-image:url({% static 'home/IMAGES/hero-bg.jpg' %})">
+                <div class="container">
+                    <div class="title-wrapper">
+                        <p class="section-subtitle">What We Serve</p>
+                        <h2 class="h2 title section-title">Top Values For You</h2> 
+                        <p class="section-text">Try a variety of benefits when
+                            using our services.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="card-icon">
+                            <img src="{% static 'home/IMAGES/service-icon-1.svg' %}" width="60" height="60" alt="icon" load_alt="lazy"> 
+                        </div>
+                        <h3 class="h3 title card-title">Lot Of Choices</h3>
+                        <p class="card-text">Total 460+ destinations that we work with.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="card-icon">
+                            <img src="{% static 'home/IMAGES/service-icon-2.svg' %}" width="60" height="60" alt="icon" load_alt="lazy"> 
+                        </div>
+                        <h3 class="h3 title card-title">Best Tour Guide</h3>
+                        <p class="card-text">Our tour guide with 15+ years of experience.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="card-icon">
+                            <img src="{% static 'home/IMAGES/service-icon-3.svg' %}" width="60" height="60" alt="icon" load_alt="lazy"> 
+                        </div>
+                        <h3 class="h3 title card-title">Easy Booking</h3>
+                        <p class="card-text">With an easy and fast package booking process.</p>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+    
+{% endblock content %}

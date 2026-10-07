@@ -1,0 +1,32 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block content %}
+
+    <style>
+        .login 
+        {
+            margin-inline: auto;
+        }
+        .login a 
+        {
+            margin-block-start: -1rem;
+        }
+    </style>
+
+    <section class="section signin login">
+        <div class="container">
+            <form action='{% url "log-page" %}' method="post">
+                {% csrf_token %}                
+                {{form.as_p}}
+                <div class="btn-container">
+                    <input type="submit" class="btn btn-secondary" value="LOG IN">
+                    <input type="reset" class="btn btn-secondary" value="RESET">
+                </div>
+                <a href="{% url 'signup' %}">New user?</a> <br /> 
+                <a href="">Forgot password</a> <br /> 
+                <a href="{% url 'change-pass' %}">Change password</a> 
+            </form>
+        </div>
+    </section>
+
+{% endblock content %}
